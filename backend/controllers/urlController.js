@@ -38,6 +38,10 @@ module.exports.shortenUrl = async(req,res) => {
             urlCode,
         });
 
+        if(req.user){
+            url.user = req.user._id;
+        }
+
         res.status(201).json({success:true,data:url});
 
     } catch (error) {
